@@ -9,7 +9,7 @@
 
         <meta name="geo.placename" content="Valence, Drôme, France">
         <meta name="geo.region" content="FR-26">
-    
+
         <link rel="shortcut icon" href="favicon.ico"/>
         <link rel="icon" type="image/png" href="favicon.png"/>
         <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
@@ -35,8 +35,80 @@
 
         <div class="container">
             <section id="main_content">
-                <p> TBD </p>
-            </section>
+            <p>This is a Quick Look plugin that renders source code with syntax highlighting, using the <a href="http://www.andre-simon.de/index.html">Highlight library</a>.</p>
+
+            <p>TBD.</p>
+
+            <h3>Compilation</h3>
+            <p>TBD.</p>
+
+<h3>Installation</h3>
+<p>To install the plugin, just drag it to <b>/Library/QuickLook</b> or <b>~/Library/QuickLook</b>.
+You may need to create that folder if it doesn't already exist.</p>
+
+<h3>Configuration</h3>
+<p>If you want to configure <b>QLColorCode</b>, there are several <b>defaults</b> commands
+that could be useful:</p>
+<ul>
+<li>Setting the text encoding (<em>default is <b>UTF-8</b></em>).<br/>  Two settings are required.  The
+first sets Highlight's encoding, the second sets Webkit's:
+    <pre><code>defaults write org.n8gray.QLColorCode textEncoding UTF-16
+defaults write org.n8gray.QLColorCode webkitTextEncoding UTF-16</code></pre>
+</li>
+<li>
+Setting the font (<em>default is <b>Menlo</b></em>):
+<pre><code>defaults write org.n8gray.QLColorCode font Monaco</code></pre>
+</li>
+<li>
+Setting the font size (<em>default is <b>10</b></em>):
+<pre><code>defaults write org.n8gray.QLColorCode fontSizePoints 9</code></pre>
+</li>
+<li>
+Setting the color style (<em>default is <b>edit-xcode</b>, see <a href="http://www.andre-simon.de/dokuwiki/doku.php?id=theme_examples">some available themes</a></em>):
+<pre><code>defaults write org.n8gray.QLColorCode hlTheme ide-xcode</code></pre>
+</li>
+<li>
+Setting any extra command-line flags for Highlight (see below):
+<pre><code>defaults write org.n8gray.QLColorCode extraHLFlags '-l -W'</code></pre>
+</li>
+<li>Setting the maximum size (<em>in bytes, <b>deactivated</b> by default</em>) for previewed files:
+<pre><code>defaults write org.n8gray.QLColorCode maxFileSize 1000000</code></pre>
+</li>
+<li>
+This version of the plugin uses an external Highlight. <em>By default, it uses <b>/opt/local/bin/highlight</b></em> but it can be changed:
+<pre><code>defaults write org.n8gray.QLColorCode pathHL /usr/local/bin/highlight</code></pre>
+</li>
+</ul>
+<h3>Higlight</h3>
+<p>Here are some useful 'highlight' command-line flags (from the man page):</p>
+<pre><code>       -F, --reformat=&lt;style&gt;
+              reformat output in given style.
+
+       -J, --line-length=&lt;num&gt;
+              line length before wrapping (see -W, -V).
+
+       -j, --line-number-length=&lt;num&gt;
+              line number length including left padding.
+
+       -l, --linenumbers
+              print line numbers in output file.
+
+       -t  --replace-tabs=&lt;num&gt;
+              replace tabs by num spaces.
+
+       -V, --wrap-simple
+              wrap long lines without indenting function parameters and statements.
+
+       -W, --wrap
+              wrap long lines.
+
+       -z, --zeroes
+              fill leading space of line numbers with zeroes.
+
+       --kw-case=&lt;upper|lower|capitalize&gt;
+              control case of case insensitive keywords
+</code></pre>
+   </section>
         </div>
 
         <script type="text/javascript">
